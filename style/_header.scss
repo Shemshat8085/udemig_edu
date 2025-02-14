@@ -1,3 +1,4 @@
+@import "./mixin";
 header{
     background: rgba(255, 255, 255, 0.24);
     border-radius: 0 0 16px 16px;
@@ -14,33 +15,62 @@ header{
     .logo{
         font-size: 33px;
         font-weight: 700;
+        @include laptop{
+            font-size: 25px;
+        }
+        @include tablet{
+            font-size: 20px;
+        }
         span{
             color: $main-color;
         }
     }
     .navbar{
         @extend .flexbox;
+        @include laptop{
+            display: none !important;
+        }
         a{
             font-size: $p-font;
-            font-weight: 500px;
+            font-weight: 500;
             margin: 15px 22px;
             text-transform: uppercase;
             display: block;
+            @extend .transition;
+            @include laptop{
+                font-size: 15px;
+            }
             &:hover{
                 color: $main-color;
                 scale: 1.2;
             }
         }
     }
+
+    .navbar.open{
+        position: fixed;
+        right: 10px;
+        top: 120%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgba(255, 255, 255, 0.24);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10.3px);
+        -webkit-backdrop-filter: blur(10.3px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 20px 0;
+        border-radius: 16px;
+    }
     .header-right{
         @extend .flexbox;
-        @include laptop{
-            background-color: red;
-        }
         a{
             font-size: 20px;
             margin: 0 18px 0 5px;
             @extend .transition;
+            @include tablet{
+                display: none;
+            }
             &:hover{
                 color: $main-color;
                 transform: translateY(-3px);
@@ -52,6 +82,9 @@ header{
         }
         #menu-btn{
             display: none;
+            @include laptop{
+                display: block !important;
+            }
         }
     }
 }
