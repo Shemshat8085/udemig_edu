@@ -13,4 +13,4 @@ Tablet, laptop ve masaüstü için optimize edilmiş görünüm
 
 Ekran resmi:
 
-![Udemig_Edu Önizleme](bandicam 2025-02-18 13-45-00-294_converted.gif)
+![Udemig_Edu Önizleme](ekranresmi.gif)
